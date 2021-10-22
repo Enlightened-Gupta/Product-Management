@@ -26,7 +26,7 @@ const prodNam = () => {
   let users;
   if (localStorage.getItem("users") === null) {
     users = [];
-    trash = [];
+    
   } else {
     users = JSON.parse(localStorage.getItem("users"));
   }
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", cardDisplay([]));
 cardDisplay(JSON.parse(localStorage.getItem("users")));
 function cardDisplay(array) {
   val = array;
-  console.log(val.length);
+ 
   for (let index = 0; index < val.length; index++) {
    
       var element = val[index];
@@ -136,12 +136,14 @@ const Search = () => {
 
 
 function deleteFuc(id) {
+  trash =[];
   trash = JSON.parse(localStorage.getItem("trash"));
   users = [];
-  trash=[];
+  
   temp = JSON.parse(localStorage.getItem("users"));
   
   for (let x = 0; x < temp.length; x++) {
+    
     if (id != temp[x]["prod"]) {
       users.push(temp[x]);
     } else {
@@ -237,33 +239,33 @@ function saveChanges() {
   window.location.reload();
 }
 
-function filterFun() {
-  var tempArray = [];
-  var ele = [];
-  var temp1 = document.getElementById("toy");
-  if (temp1.checked) {
-    ele.push(temp1.value);
-  }
-  var temp2 = document.getElementById("clothes");
-  if (temp2.checked) {
-    ele.push(temp2.value);
-  }
-  var temp3 = document.getElementById("mobile");
-  if (temp3.checked) {
-    ele.push(temp3.value);
-  }
-  var temp4 = document.getElementById("laptops");
-  if (temp4.checked) {
-    ele.push(temp4.value);
-  }
-  val = JSON.parse(localStorage.getItem("users"));
-  for (let x = 0; x < val.length; x++) {
-    for (let y = 0; y < ele.length; y++) {
-      if (val[x]["category"] == ele[y]) {
-        tempArray.push(val[x]);
-      }
-    }
-  }
-  console.log(tempArray);
-  cardDisplay(tempArray);
-}
+// function filterFun() {
+//   var tempArray = [];
+//   var ele = [];
+//   var temp1 = document.getElementById("toy");
+//   if (temp1.checked) {
+//     ele.push(temp1.value);
+//   }
+//   var temp2 = document.getElementById("clothes");
+//   if (temp2.checked) {
+//     ele.push(temp2.value);
+//   }
+//   var temp3 = document.getElementById("mobile");
+//   if (temp3.checked) {
+//     ele.push(temp3.value);
+//   }
+//   var temp4 = document.getElementById("laptops");
+//   if (temp4.checked) {
+//     ele.push(temp4.value);
+//   }
+//   val = JSON.parse(localStorage.getItem("users"));
+//   for (let x = 0; x < val.length; x++) {
+//     for (let y = 0; y < ele.length; y++) {
+//       if (val[x]["category"] == ele[y]) {
+//         tempArray.push(val[x]);
+//       }
+//     }
+//   }
+//   console.log(tempArray);
+//   cardDisplay(tempArray);
+// }
